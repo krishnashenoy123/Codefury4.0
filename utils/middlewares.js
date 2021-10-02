@@ -1,31 +1,31 @@
 
-const jwt = require('jsonwebtoken')
-const config = require('./config')
-const User = require('../models/userModel')
+const jwt = require('jsonwebtoken');
+const config = require('./config');
+const User = require('../models/userModel');
 
 /* eslint-disable consistent-return */
 const tokenExtractor = (request, response, next) => {
   // console.log("from token extractor ", request.authorization)
-   const authorization = request.get('authorization')
+   const authorization = request.get('authorization');
    if(authorization && authorization.toLowerCase().startsWith('bearer ')){
-       request['token'] = authorization.substring(7)
+       request['token'] = authorization.substring(7);
    }
   
    next()
 }
 const userExtractor = async(request, response, next) => {
-  console.log("From user extractor ", request.token)
+  console.log("From user extractor ", request.token);
  if(request.token)
  {
-     const token = request.token
-     const decodedToken = jwt.verify(token, config.ACCESS_TOKEN_SECRET)
+     const token = request.token;
+     const decodedToken = jwt.verify(token, config.ACCESS_TOKEN_SECRET);
      if(!decodedToken.id){
-         return response.status(401).json({error: 'User does not exist'})
+         return response.status(401).json({error: 'User does not exist'});
      }
      else{
-         const data = await User.findOne({email: decodedToken.email})
-         console.log("From the middleware ", data)
-         request['user'] = data
+         const data = await User.findOne({email: decodedToken.email});
+         console.log("From the middleware ", data);
+         request['user'] = data;
      }
  }
  next()
@@ -33,9 +33,9 @@ const userExtractor = async(request, response, next) => {
 const auth = (request, response, next) => {
   try{
      
-     const token = request.header("Authorization")
-     console.log(token)
-     if(!token) return response.status(400).json({msg: "Invalid Authentication."})
+     const token = request.header("Authorization");
+     console.log(token);
+     if(!token) return response.status(400).json({msg: "Invalid Authentication."});
 
      jwt.verify(token, `${config.ACCESS_TOKEN_SECRET}`, (err, user) => {
          if(err) return response.status(400).json({msg: "Invalid Authentication"})
@@ -46,7 +46,7 @@ const auth = (request, response, next) => {
      
   }catch(err){
       console.log(err)
-      return response.status(500).json({msg: err.message})
+      return response.status(500).json({msg: err.message});
   }
   
 }
@@ -80,7 +80,7 @@ const errorHandler = (error, request, response, next) => {
           error: 'invalid token from error handler'
       })
   }
-  console.log(error.message)
+  console.log(error.message);
   next(error)
 }
 
