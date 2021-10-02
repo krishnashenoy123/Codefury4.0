@@ -1,7 +1,12 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .App{
   height: 100vh;
-  width: 100vw;
-  position: fixed;
+  width: 100%;
+
 }
 :root{
   --main-bg-color:#220c4a;
@@ -10,6 +15,9 @@
 nav{
   height: 60px;
   padding: 12px;
+  margin-bottom:9px ;
+  position: sticky;
+  top:0;
   display: flex;
   justify-content: space-between ;
   align-items: center;
@@ -20,7 +28,7 @@ nav h3{
   font-weight: 600;
 }
 nav ul{
-  margin: unset;
+  /* margin: unset; */
   display: inline-flex;
 
 }
@@ -39,12 +47,12 @@ a {
     /* border-radius:16px  ; */
 
   }
-a:hover{
+/* a:hover{
   color:var(--secondary-bg-color);
-  font-weight: bold;
+  font-weight: bold; */
   /* border: 2px solid ; */
   /* outline:0;/* outline:0; removes the border in the button */
-  }
+  /* } */
 
  .active {
   font-weight: bold;
@@ -55,7 +63,7 @@ a:hover{
 
 input{
   width: 368px;
-  height: 22px;
+  height: 27px;
 
 }
 
@@ -63,4 +71,9 @@ i#search-icon{
   position: relative;
   right: 21px;
   top: 3px;
+}
+
+.container{
+  max-width: 61vw;
+  margin: auto;
 }

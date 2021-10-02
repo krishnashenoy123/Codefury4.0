@@ -1,10 +1,11 @@
-const HomePage = () => {
-	return (
-		<div className="homeBody">
-			<div className="midSection">
-				<h1 style={{ textAlign: "center" }}>Introducing StudyForces...</h1>
-			</div>
-		</div>
-	);
-};
-export default HomePage;
+import React from 'react'
+
+function Home() {
+    return (
+        <div className="container">
+            <h1>I am Home</h1>
+        </div>
+    )
+}
+
+export default Home;
