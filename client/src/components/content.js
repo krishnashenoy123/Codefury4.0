@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import names from "../pages";
 
 export default function Content({ prop }) {
 	return (
@@ -9,11 +7,7 @@ export default function Content({ prop }) {
 			<ol>
 				{prop.map((x) => {
 					console.log(x);
-					return (
-						<li id={x}>
-							<Link to="/rooms/:"></Link>
-						</li>
-					);
+					return <li id={x}>{x}</li>;
 				})}
 			</ol>
 		</div>
