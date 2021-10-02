@@ -44,6 +44,7 @@ const Register = () => {
         {
             return setUser({...user, err: "Password did not match", success: ''})
         }
+        console.log("i am here");
         try{
            
            
