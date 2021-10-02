@@ -4,6 +4,8 @@ const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 
+const UserRouter = require('./controllers/userCtrl');
+
 const app = express();
 
 const { Cors, errorHandler } = require('./utils/middlewares');
@@ -19,7 +21,7 @@ dotenv.config();
 app.use(cookieParser());
 
 if (process.env.NODE_ENV === "development") {
-    app.use(morgan('dev'))
+    app.use(morgan('dev'));
 }
 
 app.use(express.json());
@@ -34,15 +36,17 @@ mongoose.connect(config.MONGODB_URI, {
 
 })
     .then(() => {
-        console.log("Connected to the DB")
+        console.log("Connected to the DB");
 
     })
     .catch((error) => {
-        console.log({ error: error })
+        console.log({ error: error });
     })
 
-    app.use(errorHandler)
 
+   app.use("/api/Users", UserRouter);
+  
+   app.use(errorHandler);
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.NODE_ENV} mode on the port ${PORT}`);
