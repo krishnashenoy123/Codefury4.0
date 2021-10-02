@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { GrSearch } from "react-icons/gr";
+import JSONDATA from '../MOCK_DATA.json';
 function Nav() {
     return (
         <nav>
@@ -8,6 +9,15 @@ function Nav() {
             <div id="search">
                 <input type="text" placeholder="Search" />
                 <i frame id="search-icon"><GrSearch /></i>
+{/*                 
+                {JSONDATA.map((val, key)=>{
+                    return (
+                    <div> 
+                        {val.name} 
+                    </div>
+                    );
+                })}
+                 */}
             </div>
             <ul>
                 <li>
