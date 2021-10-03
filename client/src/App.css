@@ -62,15 +62,39 @@ a {
 }
 
 input{
+  position: absolute;
+  top: 18px;
+  left: 685px;
   width: 368px;
   height: 27px;
 
 }
 
+.filter{
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  background-color: rgba(65, 0, 58, 0.96);
+  height:auto;
+  width: 368px;
+  top: 49px;
+  left: 685px;
+
+}
+.filter-child{
+  background-color: #a64c87;
+  color: #f8f8f8;
+  padding: 3px;
+  height: 25px;
+  margin: 8.7px;
+  border-radius: 8px;
+}
+
 i#search-icon{
-  position: relative;
-  right: 21px;
-  top: 3px;
+  position: absolute;
+  left: 1030px;
+  top: 24px;
 }
 
 .container{
