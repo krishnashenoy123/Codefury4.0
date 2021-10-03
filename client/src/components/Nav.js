@@ -4,15 +4,15 @@ import { GrSearch } from "react-icons/gr";
 // import JSONDATA from '../MOCK_DATA.json';
 import Filter  from '../components/Filter';
 function Nav() {
-    onInputClickHandler=()=>{
-        // display:{display:'none'}
-    }
+    // onInputClickHandler=()=>{
+    //     // display:{display:'none'}
+    // }
     
     return (
         <nav>
             <h3>dummy</h3>
             <div id="search">
-                <input type="text" placeholder="Search" onInput={()=>{}}/>
+                <input type="text" placeholder="Search" /> {/* onInput={()=>{}} */}
                 <i frame id="search-icon" ><GrSearch /></i>
                 {/*                 
                 {JSONDATA.map((val, key)=>{
